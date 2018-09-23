@@ -1,0 +1,7 @@
+feeder-id feederidxxxx
+receiver-type other
+receiver-host 172.17.0.2
+receiver-port 30005
+flightaware-user xxxxx
+flightaware-password xxxxx
+mlat-results yes

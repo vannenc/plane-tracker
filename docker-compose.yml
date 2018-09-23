@@ -1,0 +1,26 @@
+version: '3'
+services:
+  1090-fa:
+    image: vannen/dump1090fa
+    ports:
+      - "8080:8080"
+      - "30003:30003"
+      - "30005:30005"
+      - "30104:30104"
+    privileged: true
+  fr24:
+    image: vannen/fr24
+    volumes:
+      - "./fr24/fr24feed.ini:/etc/fr24feed.ini"
+    ports:
+      - "8081:8080"
+    depends_on:
+      - 1090-fa
+    mac_address: 02:42:ac:11:00:02
+  flightaware:
+    image: vannen/flightaware
+    volumes:
+      - "./flightaware/piaware.conf:/etc/piaware.conf"
+    depends_on:
+      - 1090-fa
+    mac_address: 02:42:ac:11:00:03
