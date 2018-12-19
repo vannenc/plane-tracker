@@ -17,6 +17,7 @@ services:
     depends_on:
       - 1090-fa
     mac_address: 02:42:ac:11:00:02
+    restart: unless-stopped
   flightaware:
     image: vannen/flightaware
     volumes:
@@ -24,3 +25,4 @@ services:
     depends_on:
       - 1090-fa
     mac_address: 02:42:ac:11:00:03
+    restart: unless-stopped
